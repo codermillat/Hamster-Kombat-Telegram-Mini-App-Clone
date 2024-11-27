@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#2196F3">
+  <circle cx="32" cy="32" r="28"/>
+  <text x="32" y="42" textAnchor="middle" fill="#FFF" fontSize="24">×2</text>
+</svg>

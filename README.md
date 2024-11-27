@@ -1,76 +1,153 @@
 # Hamster Kombat Clone
 
-This repository contains the initial setup and the final version of the Hamster Kombat clone project, including the basic project structure, necessary images, and icons.
+A React-based clone of the popular Telegram mini-app Hamster Kombat, featuring modern web technologies and a sleek user interface.
 
-## Overview
+![Hamster Kombat Clone Screenshot](public/screenshot.png)
 
-This project is a clone of the popular Telegram mini app, Hamster Kombat. The repository provides two branches:
+## 🚀 Features
 
-1. **Initial Setup**: Provides the foundational structure and assets needed to build the full application.
-2. **Final Version**: The completed application with all functionalities.
+- Interactive clicking mechanism with visual feedback
+- Progress tracking and level system
+- Daily rewards system
+- Real-time profit calculation
+- Responsive design optimized for mobile
+- Modern UI with smooth animations
 
-## Getting Started
+## 🛠️ Tech Stack
 
-To get started with either the initial setup or the final version, follow these instructions:
+- React 18
+- TypeScript
+- Tailwind CSS
+- Vite
+- Modern JavaScript (ES6+)
 
-### Cloning the Repository
+## 📋 Prerequisites
 
-1. **Clone the Repository**:
+Before you begin, ensure you have the following installed:
+- Node.js (v18 or higher)
+- npm (v8 or higher)
 
-    ```bash
-    git clone https://github.com/nikandr-surkov/Hamster-Kombat-Telegram-Mini-App-Clone.git
-    cd Hamster-Kombat-Telegram-Mini-App-Clone
-    ```
+## 🔧 Installation
 
-### Initial Setup
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/hamster-kombat-clone.git
+cd hamster-kombat-clone
+```
 
-2. **Switch to the `initial-setup` Branch**:
+2. Install dependencies:
+```bash
+npm install
+```
 
-    ```bash
-    git checkout initial-setup
-    ```
+3. Start the development server:
+```bash
+npm run dev
+```
 
-3. **Install Dependencies**:
+The application will be available at `http://localhost:5173`
 
-    ```bash
-    npm install
-    ```
+## 🏗️ Building for Production
 
-4. **Run the Development Server**:
+1. Create a production build:
+```bash
+npm run build
+```
 
-    ```bash
-    npm run dev
-    ```
+2. Preview the production build locally:
+```bash
+npm run preview
+```
 
-5. **Open Your Browser**:
+## 🚀 Deployment
 
-    Navigate to localhost to see the initial setup.
+### Deploying to Netlify
 
-### Final Version
+1. Create a Netlify account at [netlify.com](https://www.netlify.com)
 
-2. **Switch to the `final-version` Branch**:
+2. Install Netlify CLI:
+```bash
+npm install -g netlify-cli
+```
 
-    ```bash
-    git checkout final-version
-    ```
+3. Login to Netlify:
+```bash
+netlify login
+```
 
-3. **Install Dependencies**:
+4. Deploy your site:
+```bash
+netlify deploy
+```
 
-    ```bash
-    npm install
-    ```
+5. Follow the prompts to complete the deployment
 
-4. **Run the Development Server**:
+### Environment Variables
 
-    ```bash
-    npm run dev
-    ```
+The following environment variables are required for deployment:
 
-5. **Open Your Browser**:
+```env
+VITE_APP_TITLE=Hamster Kombat Clone
+```
 
-    Navigate to localhost to see the final version of the application.
+Create a `.env` file in the root directory and add these variables.
 
-## Contact
+## 🎮 Game Mechanics
 
-For any inquiries, please contact me in Telegram: [Nikandr Surkov](https://t.me/nikandr_s).
+### Level System
+- Bronze: 0 to 4,999 coins
+- Silver: 5,000 to 24,999 coins
+- Gold: 25,000 to 99,999 coins
+- Platinum: 100,000 to 999,999 coins
+- Diamond: 1,000,000 to 2,000,000 coins
+- Epic: 2,000,000 to 10,000,000 coins
+- Legendary: 10,000,000 to 50,000,000 coins
+- Master: 50,000,000 to 100,000,000 coins
+- GrandMaster: 100,000,000 to 1,000,000,000 coins
+- Lord: 1,000,000,000+ coins
 
+### Daily Features
+- Daily Reward: Resets at UTC 00:00
+- Daily Cipher: Resets at UTC 19:00
+- Daily Combo: Resets at UTC 12:00
+
+## 📁 Project Structure
+
+```
+hamster-kombat-clone/
+├── src/
+│   ├── icons/           # SVG icon components
+│   ├── images/          # Game assets and images
+│   ├── utils/           # Utility functions and types
+│   ├── App.tsx         # Main application component
+│   ├── App.css         # Application styles
+│   └── main.tsx        # Application entry point
+├── public/             # Static assets
+└── package.json        # Project dependencies and scripts
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👏 Acknowledgments
+
+- Original Telegram mini-app creators for inspiration
+- [SVG Repo](https://www.svgrepo.com/) for icons
+- React and Vite communities for excellent documentation
+
+## 📧 Contact
+
+For any inquiries, please contact me in Telegram: [@nikandr_s](https://t.me/nikandr_s)
+
+## ⚠️ Disclaimer
+
+This is a clone project created for educational purposes. It is not affiliated with the original Telegram mini-app or its creators.

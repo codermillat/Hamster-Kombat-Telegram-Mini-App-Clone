@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Hamster from './icons/Hamster';
-import { binanceLogo, dailyCipher, dailyCombo, dailyReward, dollarCoin, hamsterCoin, mainCharacter } from './images';
 import Info from './icons/Info';
 import Settings from './icons/Settings';
 import Mine from './icons/Mine';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
+import { GameImage } from './components/GameImage';
+import { formatProfitPerHour } from './utils/formatting';
 
 const App: React.FC = () => {
   const levelNames = [
@@ -72,7 +73,7 @@ const App: React.FC = () => {
     };
 
     updateCountdowns();
-    const interval = setInterval(updateCountdowns, 60000); // Update every minute
+    const interval = setInterval(updateCountdowns, 60000);
 
     return () => clearInterval(interval);
   }, []);
@@ -113,14 +114,7 @@ const App: React.FC = () => {
     } else if (points < currentLevelMin && levelIndex > 0) {
       setLevelIndex(levelIndex - 1);
     }
-  }, [points, levelIndex, levelMinPoints, levelNames.length]);
-
-  const formatProfitPerHour = (profit: number) => {
-    if (profit >= 1000000000) return `+${(profit / 1000000000).toFixed(2)}B`;
-    if (profit >= 1000000) return `+${(profit / 1000000).toFixed(2)}M`;
-    if (profit >= 1000) return `+${(profit / 1000).toFixed(2)}K`;
-    return `+${profit}`;
-  };
+  }, [points, levelIndex]);
 
   useEffect(() => {
     const pointsPerSecond = Math.floor(profitPerHour / 3600);
@@ -133,6 +127,7 @@ const App: React.FC = () => {
   return (
     <div className="bg-black flex justify-center">
       <div className="w-full bg-black text-white h-screen font-bold flex flex-col max-w-xl">
+        {/* Header Section */}
         <div className="px-4 z-10">
           <div className="flex items-center space-x-2 pt-4">
             <div className="p-1 rounded-lg bg-[#1d2025]">
@@ -157,12 +152,12 @@ const App: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center w-2/3 border-2 border-[#43433b] rounded-full px-4 py-[2px] bg-[#43433b]/[0.6] max-w-64">
-              <img src={binanceLogo} alt="Exchange" className="w-8 h-8" />
+              <GameImage imageKey="binanceLogo" alt="Exchange" className="w-8 h-8" />
               <div className="h-[32px] w-[2px] bg-[#43433b] mx-2"></div>
               <div className="flex-1 text-center">
                 <p className="text-xs text-[#85827d] font-medium">Profit per hour</p>
                 <div className="flex items-center justify-center space-x-1">
-                  <img src={dollarCoin} alt="Dollar Coin" className="w-[18px] h-[18px]" />
+                  <GameImage imageKey="dollarCoin" alt="Dollar Coin" className="w-[18px] h-[18px]" />
                   <p className="text-sm">{formatProfitPerHour(profitPerHour)}</p>
                   <Info size={20} className="text-[#43433b]" />
                 </div>
@@ -173,43 +168,47 @@ const App: React.FC = () => {
           </div>
         </div>
 
+        {/* Main Game Section */}
         <div className="flex-grow mt-4 bg-[#f3ba2f] rounded-t-[48px] relative top-glow z-0">
           <div className="absolute top-[2px] left-0 right-0 bottom-0 bg-[#1d2025] rounded-t-[46px]">
+            {/* Daily Rewards Section */}
             <div className="px-4 mt-6 flex justify-between gap-2">
               <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
                 <div className="dot"></div>
-                <img src={dailyReward} alt="Daily Reward" className="mx-auto w-12 h-12" />
+                <GameImage imageKey="dailyReward" alt="Daily Reward" className="mx-auto w-12 h-12" />
                 <p className="text-[10px] text-center text-white mt-1">Daily reward</p>
                 <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyRewardTimeLeft}</p>
               </div>
               <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
                 <div className="dot"></div>
-                <img src={dailyCipher} alt="Daily Cipher" className="mx-auto w-12 h-12" />
+                <GameImage imageKey="dailyCipher" alt="Daily Cipher" className="mx-auto w-12 h-12" />
                 <p className="text-[10px] text-center text-white mt-1">Daily cipher</p>
                 <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyCipherTimeLeft}</p>
               </div>
               <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
                 <div className="dot"></div>
-                <img src={dailyCombo} alt="Daily Combo" className="mx-auto w-12 h-12" />
+                <GameImage imageKey="dailyCombo" alt="Daily Combo" className="mx-auto w-12 h-12" />
                 <p className="text-[10px] text-center text-white mt-1">Daily combo</p>
                 <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyComboTimeLeft}</p>
               </div>
             </div>
 
+            {/* Points Display */}
             <div className="px-4 mt-4 flex justify-center">
               <div className="px-4 py-2 flex items-center space-x-2">
-                <img src={dollarCoin} alt="Dollar Coin" className="w-10 h-10" />
+                <GameImage imageKey="dollarCoin" alt="Dollar Coin" className="w-10 h-10" />
                 <p className="text-4xl text-white">{points.toLocaleString()}</p>
               </div>
             </div>
 
+            {/* Main Character */}
             <div className="px-4 mt-4 flex justify-center">
               <div
                 className="w-80 h-80 p-4 rounded-full circle-outer"
                 onClick={handleCardClick}
               >
                 <div className="w-full h-full rounded-full circle-inner">
-                  <img src={mainCharacter} alt="Main Character" className="w-full h-full" />
+                  <GameImage imageKey="mainCharacter" alt="Main Character" className="w-full h-full" />
                 </div>
               </div>
             </div>
@@ -217,10 +216,10 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom fixed div */}
+      {/* Bottom Navigation */}
       <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl bg-[#272a2f] flex justify-around items-center z-50 rounded-3xl text-xs">
         <div className="text-center text-[#85827d] w-1/5 bg-[#1c1f24] m-1 p-2 rounded-2xl">
-          <img src={binanceLogo} alt="Exchange" className="w-8 h-8 mx-auto" />
+          <GameImage imageKey="binanceLogo" alt="Exchange" className="w-8 h-8 mx-auto" />
           <p className="mt-1">Exchange</p>
         </div>
         <div className="text-center text-[#85827d] w-1/5">
@@ -236,11 +235,12 @@ const App: React.FC = () => {
           <p className="mt-1">Earn</p>
         </div>
         <div className="text-center text-[#85827d] w-1/5">
-          <img src={hamsterCoin} alt="Airdrop" className="w-8 h-8 mx-auto" />
+          <GameImage imageKey="hamsterCoin" alt="Airdrop" className="w-8 h-8 mx-auto" />
           <p className="mt-1">Airdrop</p>
         </div>
       </div>
 
+      {/* Click Effects */}
       {clicks.map((click) => (
         <div
           key={click.id}
