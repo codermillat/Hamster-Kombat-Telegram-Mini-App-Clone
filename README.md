@@ -2,7 +2,6 @@
 
 A React-based clone of the popular Telegram mini-app Hamster Kombat, featuring modern web technologies and a sleek user interface.
 
-![Hamster Kombat Clone Screenshot](public/screenshot.png)
 
 ## 🚀 Features
 
@@ -31,7 +30,7 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/hamster-kombat-clone.git
+git clone https://github.com/codermillat/Hamster-Kombat-Telegram-Mini-App-Clone.git
 cd hamster-kombat-clone
 ```
 
@@ -144,9 +143,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [SVG Repo](https://www.svgrepo.com/) for icons
 - React and Vite communities for excellent documentation
 
-## 📧 Contact
-
-For any inquiries, please contact me in Telegram: [@nikandr_s](https://t.me/nikandr_s)
 
 ## ⚠️ Disclaimer
 
